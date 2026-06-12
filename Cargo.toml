@@ -1,0 +1,12 @@
+[package]
+name = "quspec"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = "0.34.3"
+egui = "0.34.3"
+num-complex = "0.4.6"
+rustfft = "6.4.1"
+symphonia = { version = "0.5.4", features = ["all"] }
+arboard = "3.4.1"
