@@ -2,7 +2,7 @@
 
 quspec is a lightweight audio spectrogram visualizer.
 
-![Example spectrogram UI](example.png)
+![Example spectrogram UI](preview.png)
 
 ## Keybindings
 

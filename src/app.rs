@@ -32,7 +32,12 @@ pub struct QuspecApp {
 }
 
 impl QuspecApp {
-    pub fn new(_cc: &eframe::CreationContext<'_>, playlist: Vec<PathBuf>) -> Self {
+    pub fn new(cc: &eframe::CreationContext<'_>, playlist: Vec<PathBuf>) -> Self {
+        let mut visuals = egui::Visuals::dark();
+        visuals.panel_fill = egui::Color32::BLACK;
+        visuals.window_fill = egui::Color32::BLACK;
+        cc.egui_ctx.set_visuals(visuals);
+
         let mut app = Self {
             playlist,
             current_index: 0,
@@ -201,6 +206,10 @@ impl QuspecApp {
 }
 
 impl eframe::App for QuspecApp {
+    fn clear_color(&self, _visuals: &egui::Visuals) -> [f32; 4] {
+        [0.0, 0.0, 0.0, 1.0]
+    }
+
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
         if ui.input(|i| i.key_pressed(egui::Key::Q)) {
             ui.ctx().send_viewport_cmd(egui::ViewportCommand::Close);
